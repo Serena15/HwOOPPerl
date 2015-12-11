@@ -14,15 +14,13 @@ sub new {
 sub next {
 	my ($self) = @_;
 	my $fh = $self->{fh};
-	my $row = <$fh>;	
-	chomp $row;		
-	my $data = $row;
-	my $flag = 0;
-	unless(defined $data) {
-			$flag = 1;
+	my $row = <$fh>;			
+	unless(defined $row) {
+		close($fh);
+		return (undef, 1);	
 	}	
-	close($fh) if eof($fh);
-	return ($data, $flag);
+	chomp $row;	
+	return ($row, 0);
 }
 
 sub all {
@@ -33,7 +31,6 @@ sub all {
 		chomp;
 		push @array, $_;	
 	}
-	close($fh);
 	return \@array;
 }
 
