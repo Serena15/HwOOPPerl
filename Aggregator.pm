@@ -2,9 +2,6 @@ use strict;
 use warnings;
 use DDP;
 
-sub init {
-} 
-
 sub next {
 	my ($self) = shift;
 	my @group = ();
