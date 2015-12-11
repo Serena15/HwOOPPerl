@@ -6,8 +6,9 @@ use DDP;
 
 sub new {
 	my ($class, %params) = @_;	
-	$params{count} = 0;
-	return bless \%params, $class;
+	my $obj = bless \%params, $class;
+	$obj->init();
+	return $obj;
 }
 
 sub all {
