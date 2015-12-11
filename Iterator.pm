@@ -11,6 +11,9 @@ sub new {
 	return $obj;
 }
 
+sub init {
+}
+
 sub all {
 	my ($class) = @_;	
 	my @array = ();
