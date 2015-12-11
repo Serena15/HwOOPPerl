@@ -1,15 +1,15 @@
 package Local::Iterator::File;
+use base Local::Iterator;
 use strict;
 use warnings;
 use DDP;
 
-sub new {
-	my ($class, %params) = @_;
-	if(defined $params{filename}) {
-		open(my $fh, '<', $params{filename});
-		$params{fh} = $fh;
+sub init {
+	my ($self) = @_;
+	if(defined  $self->{filename}) {
+		open(my $fh, '<',  $self->{filename});
+		 $self->{fh} = $fh;
 	}
-	return bless \%params, $class;
 }
 
 sub next {
@@ -21,17 +21,6 @@ sub next {
 	}	
 	chomp $row;	
 	return ($row, 0);
-}
-
-sub all {
-	my ($self) = @_;	
-	my @array = ();
-	my $fh = $self->{fh};
-	while(<$fh>) {
-		chomp;
-		push @array, $_;	
-	}
-	return \@array;
 }
 
 sub DESTROY {
