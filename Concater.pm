@@ -1,7 +1,7 @@
 package Local::Iterator::Concater;
-use base Local::Iterator;
 use strict;
 use warnings;
+use base 'Local::Iterator';
 
 sub init {
 	my ($self) = @_;
