@@ -1,6 +1,7 @@
+package Local::Iterator::Aggregator;
 use strict;
 use warnings;
-use DDP;
+use base 'Local::Iterator';
 
 sub next {
 	my ($self) = shift;
