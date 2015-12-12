@@ -1,8 +1,7 @@
 package Local::Iterator::File;
-use base Local::Iterator;
 use strict;
 use warnings;
-use DDP;
+use base 'Local::Iterator';
 
 sub init {
 	my ($self) = @_;
